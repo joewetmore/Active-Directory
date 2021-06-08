@@ -1,0 +1,24 @@
+Replacing the SSL certificate for AD FS
+
+1. Snapshot backups of VMs
+2. Import it on the local store of each ADFS nodes and WAP servers
+3. Check for private key
+4. ADFS server commands
+    1. From ADFS console select “Set Service Communication Certificate”
+    2. Select new certificate from prompted list of certificates.
+    3. Run Get-AdfsSslCertificate. Make a note of the thumbprint of the new certificate.
+    4. If used for service communications
+        1. Set-AdfsCertificate -CertificateType "Service-Communications" -Thumbprint '<thumbprint of new cert>’
+    5. Set-AdfsSslCertificate -Thumbprint '<thumbprint of new cert>'
+    6. If used for token signing & decrypting
+        1. Set-ADFSProperties -AutoCertificateRollover $true
+        2. Update-AdfsCertificate -CertificateType "Token-Signing" -Urgent
+        3. Update-AdfsCertificate -CertificateType "Token-Decrypting" -Urgent
+    7. Restart ADFS service.   restart-service adfssrv
+5. WAP server commands
+    1. Set-WebApplicationProxySslCertificate -Thumbprint '<thumbprint of new cert>'
+    2. Restart-Service appproxysvc
+    
+    
+    
+    
