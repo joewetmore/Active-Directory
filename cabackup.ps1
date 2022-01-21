@@ -21,7 +21,7 @@ $path = "\\bucket\CABackup\$CAName"
 $Date = (Get-Date).ToString("dd-MM-yy hh-mm-ss") 
 Mkdir $path\$Date 
 $backup = Join-Path $path -ChildPath $date 
-Certutil.exe –catemplates > "$backup\templates.txt" 
+Certutil.exe –template > "$backup\templates.txt" 
 reg export HKLM\System\CurrentControlSet\Services\CertSvc\Configuration $backup\CAregistery.txt 
 Copy-Item "c:\windows\capolicy.inf" -Destination $backup
 certutil.exe -backup -p p@ssw0rd  $backup  
