@@ -25,3 +25,8 @@ Set-DhcpServerv4OptionValue -OptionID 3 -Value "10.$sitenetwork.100.1" -ScopeID 
 
 Add-DhcpServerv4Scope -name "Voice (VLAN 130)" -StartRange "10.$sitenetwork.130.51" -EndRange "10.$sitenetwork.130.250" -SubnetMask 255.255.255.0 -State InActive
 Set-DhcpServerv4OptionValue -OptionID 3 -Value "10.$sitenetwork.130.1" -ScopeID "10.$sitenetwork.130.0" -ComputerName $dhcpservername
+
+
+#importing reservations
+#see https://docs.microsoft.com/en-us/powershell/module/dhcpserver/add-dhcpserverv4reservation?view=windowsserver2022-ps
+Import-Csv -Path "Reservations.csv" | Add-DhcpServerv4Reservation -ComputerName "dhcpserver.contoso.com"
