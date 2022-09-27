@@ -30,3 +30,9 @@ Set-DhcpServerv4OptionValue -OptionID 3 -Value "10.$sitenetwork.130.1" -ScopeID 
 #importing reservations
 #see https://docs.microsoft.com/en-us/powershell/module/dhcpserver/add-dhcpserverv4reservation?view=windowsserver2022-ps
 Import-Csv -Path "Reservations.csv" | Add-DhcpServerv4Reservation -ComputerName "dhcpserver.contoso.com"
+
+#sample CSV
+ScopeId,IPAddress,Name,ClientId,Description
+10.10.10.0,10.10.10.10,Computer1,1a-1b-1c-1d-1e-1f,Reserved for Computer1
+20.20.20.0,20.20.20.11,Computer2,2a-2b-2c-2d-2e-2f,Reserved for Computer2
+30.30.30.0,30.30.30.12,Computer3,3a-3b-3c-3d-3e-3f,Reserved for Computer3
