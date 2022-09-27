@@ -1,4 +1,4 @@
- Import-Csv "c:\scipts\rad_client_list.csv" | Foreach-Object
+ Import-Csv "c:\scripts\rad_client_list.csv" | Foreach-Object
  {
      $DeviceName = $_."Name"
      $IPAddress = $_."IP"
