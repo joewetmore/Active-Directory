@@ -6,16 +6,16 @@
 # Set these variables for your environment. Set CAName on each Certificate Authority Server. 
 
 # Name of this certification authority
-$CAname = "CTHULHU"
+$CAname = "MYCASERVER"
 
 # Email address that will receive alerts
-$AlertRecip = "joew@intervision.com"
+$AlertRecip = "josephwetmore@mydomain.com"
 
 # Your SMTP server
 $SMTPserver = "smtp.mydomain.com"
 
 # File server path for CA backups
-$path = "\\bucket\CABackup\$CAName" 
+$path = "\\MYFILESERVER\CABackup\$CAName" 
 
 
 $Date = (Get-Date).ToString("dd-MM-yy hh-mm-ss") 
