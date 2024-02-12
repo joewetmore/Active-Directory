@@ -1,4 +1,4 @@
- # gpo-backup.ps1
+# gpo-backup.ps1
 # 2/10/2024 Joe Wetmore
 #
 # The purpose of this script is to take full backups of all GPOs on a domain controller and write them to timestamped subdirectories in a designated location
