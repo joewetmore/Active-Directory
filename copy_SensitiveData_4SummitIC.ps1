@@ -1,6 +1,6 @@
 # Define the root paths
-$sourceRoot = "\\hypnos\AADataPROD\Quotes"
-$destinationRoot = "\\hypnos\denshare02\AADataPROD\Quotes"
+$sourceRoot = "\\aapcbhvfs\AADataPROD\Quotes"
+$destinationRoot = "\\denfas01\denshare02\AADataPROD\Quotes"
 
 # Get all directories under the source root
 $quoteDirectories = Get-ChildItem -Path $sourceRoot -Directory
