@@ -1,6 +1,6 @@
 <#
+SMBv1
 The computer will restart after you run the PowerShell commands to disable or enable SMBv1
-
 https://learn.microsoft.com/en-us/windows-server/storage/file-server/troubleshoot/detect-enable-and-disable-smbv1-v2-v3?tabs=server
 #>
 
@@ -14,3 +14,15 @@ Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 
 #enable
 Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
+
+
+
+<#
+SMBv2
+#>
+
+Get-SmbServerConfiguration | Select EnableSMB2Protocol
+
+Set-SmbServerConfiguration -EnableSMB2Protocol $false
+
+Set-SmbServerConfiguration -EnableSMB2Protocol $true
