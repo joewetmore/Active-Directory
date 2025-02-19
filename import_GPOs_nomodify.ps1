@@ -1,10 +1,8 @@
 <#
 .SYNOPSIS
 ===========================================================================
-Created on:         Sept 9, 2024
 Last Updated on:    Nov 27, 2024  
 Created by:         Joe Wetmore
-Organization:       Comtech
 Filename:           import_GPOs_nomodify.ps1
 File Version:       1.7.1
 ===========================================================================
@@ -102,7 +100,6 @@ File Version:       1.7.1
     PSAP-Windows Unquoted Service Path Enumeration Mitigation
     PSAP-Windows System-Remote Desktop-Enable
     _FirewallOFF For Testing Only
-
 #>
 
 Import-Module ActiveDirectory            
