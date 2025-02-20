@@ -8,4 +8,4 @@ $date = (get-date).adddays(-16).
 
 get-adcomputer -filter {passwordlastset -lt $date} -properties passwordlastset | select name, passwordlastset | sort passwordlastset
 
-get-adcomputer -filter {passwordlastset -lt $date} -properties passwordlastset | remove-adobject -recursive -verbose -confirm:$false
+# get-adcomputer -filter {passwordlastset -lt $date} -properties passwordlastset | remove-adobject -recursive -verbose -confirm:$false
