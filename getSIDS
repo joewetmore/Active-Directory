@@ -1,0 +1,13 @@
+#get SIDS for builtin
+$account = New-Object System.Security.Principal.NTAccount("BUILTIN\Administrators")
+$sid    = $account.Translate([System.Security.Principal.SecurityIdentifier])
+$sid.ToString()
+
+
+
+#get SIDS for an apppool
+Import-Module WebAdministration
+$pool = Get-Item "IIS:\AppPools\DefaultAppPool"
+$sid  = New-Object System.Security.Principal.SecurityIdentifier `
+         (Get-Item $pool | Select-ExpandProperty applicationPoolSid)
+$sid.Translate([System.Security.Principal.NTAccount]).ToString()
