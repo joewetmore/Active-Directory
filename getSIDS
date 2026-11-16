@@ -11,3 +11,10 @@ $pool = Get-Item "IIS:\AppPools\DefaultAppPool"
 $sid  = New-Object System.Security.Principal.SecurityIdentifier `
          (Get-Item $pool | Select-ExpandProperty applicationPoolSid)
 $sid.Translate([System.Security.Principal.NTAccount]).ToString()
+
+
+#get user from SID
+$sid = "S-1-5-21-123456789-123456789-123456789-1001"
+$objSID = New-Object System.Security.Principal.SecurityIdentifier($sid)
+$objUser = $objSID.Translate([System.Security.Principal.NTAccount])
+$objUser.Value
